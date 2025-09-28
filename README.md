@@ -82,9 +82,9 @@ The simulation uses a color-coded grid to represent the states of individuals:
 • <b>Infectious (I):</b> Full blue for I1 and pale blue for I2.
 • <b>Immune (R):</b> Red for R1, transitioning to progressively darker shades of red for R2 through R5.
 
-Figure 1: Color Map for Spread of Disease Simulation.
+![Color Map](graphlegend.png)
 
-INSERT PICTURE
+Figure 1: Color Map for Spread of Disease Simulation.
 
 The grid updates at each time step, providing a dynamic visual representation of the virus’s spread and recovery patterns over time.
 
@@ -104,9 +104,9 @@ This simulation explored two distinct scenarios to analyze the spread of a stoma
 ## 4.1 High Susceptibility, Low Infection
 We first examined a scenario where the probability of susceptibility was set to 0.8, and the prob- ability of infection was set to 0.1. This indicates that 80% of the population is initially susceptible, while 10% of the population is infectious. The remaining 10% are immune to the virus. The goal was to observe how the virus spreads in a population that is largely unprotected against infection. The graph shows the simulation paused at Day 5 to demonstrate the state of the population.
 
-INSERT PICTURE
+![Day 5 Simulation](day5sim.png)
 
- Figure 2: Simulation paused at Day 5 with probability of susceptibility = 0.8 and probability of infection = 0.1
+Figure 2: Simulation paused at Day 5 with probability of susceptibility = 0.8 and probability of infection = 0.1
  
 In this scenario, the large susceptible population enabled the virus to spread steadily across the grid. Clusters of infection formed as infected individuals (I1 and I2) transmitted the virus to their susceptible neighbors. Over time, these clusters expanded, and more individuals transitioned to the immune state (R1 through R5). By the middle of the simulation, immune individuals began to dominate the grid, halting further spread of the virus.
 
@@ -115,16 +115,13 @@ The spread of the virus was slow initially due to the limited number of infectio
 1. Rapid growth: The number of infected individuals increased as clusters of infection grew.
 2. Stabilization: The outbreak peaked and began to stabilize as more individuals transitioned to immune states.
 3. Decline: The infection subsided as the majority of the population became immune, leaving fewer susceptible individuals to sustain transmission.
-4. 
-Populations with high susceptibility but limited initial infections experience prolonged outbreaks, with the potential for widespread immunity over time. The slow progression allows for visible clustering of infection before stabilization.
+4. Populations with high susceptibility but limited initial infections experience prolonged outbreaks, with the potential for widespread immunity over time. The slow progression allows for visible clustering of infection before stabilization.
 
 ## 4.2 Low Susceptibility, High Infection
 In contrast, in Figure 3, the probability of susceptibility is set to 0.2, and the probability of infection is set to 0.7, indicating that 20% of the population is initially susceptible, 70% of the population is infectious, and the remaining 10% are immune to the virus. This will help illustrate how outbreaks behave when susceptibility is low, but infection is widespread. The simulation was paused at Day 5 to compare the similarities and differences to the scenario above, which featured high susceptibility and low infectious probabilities.
 
-Spread of Disease (Day 5)
 
-INSERT PICTURE
-
+![Spread of Disease (Day 5)](day5highinfectionrate.png)
 Figure 3: Simulation paused at Day 5 with probability of susceptibility = 0.2 and probability of infection = 0.7.
 
 In this scenario, the virus spread rapidly in the early timesteps with a high proportion of initially infectious individuals. Susceptible individuals were quickly infected, and the transition to immune states occurred faster than in the high-susceptibility scenario. Immune individuals (R1 through R5) formed significant clusters early on, limiting the virus’s reach.
