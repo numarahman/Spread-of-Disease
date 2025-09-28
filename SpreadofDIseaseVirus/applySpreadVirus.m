@@ -1,0 +1,37 @@
+function newGrid = applySpreadVirus(extendedGrid)
+
+
+global SUSCEPTIBLE INFECTIOUS IMMUNE;
+
+n = size(extendedGrid, 1) - 2;
+newGrid = zeros(n);
+
+for i = 2:(n + 1)
+    for j = 2:(n + 1)
+        current = extendedGrid(i, j);
+        neighbors = [extendedGrid(i-1, j), extendedGrid(i+1, j), ...
+                     extendedGrid(i, ...
+                     j-1), extendedGrid(i, j+1)];
+
+        % transition
+        if current == SUSCEPTIBLE
+    % Checks if at least one neighbor is infectious
+    if any(neighbors == INFECTIOUS(1)) || any(neighbors == INFECTIOUS(2))
+        newGrid(i-1, j-1) = INFECTIOUS(1); % infectious for day 1
+    else
+        newGrid(i-1, j-1) = SUSCEPTIBLE;   % Remain susceptible for day 2
+    end
+        elseif current == INFECTIOUS(1)      % day 1 infectious 
+            newGrid(i-1, j-1) = INFECTIOUS(2);     % Progress to Infectious Day 2
+        elseif current == INFECTIOUS(2)
+            newGrid(i-1, j-1) = IMMUNE(1);         % Transition to Immune Day 1
+        elseif current >= IMMUNE(1) && current < IMMUNE(end)
+            newGrid(i-1, j-1) = current + 1;       % Progress immunity
+        elseif current == IMMUNE(end)
+            newGrid(i-1, j-1) = SUSCEPTIBLE;       % Immunity ends, become susceptible
+        end
+    end
+end
+
+end
+
